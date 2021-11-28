@@ -1,7 +1,7 @@
 require('source-map-support/register')
 const serverlessExpress = require('./vendia/serverless-express');
-// const app = require('./gen/srv/server');
-const app = require('./server');
+const app = require('./gen/srv/server');
+// const app = require('./server');
 
 
 
