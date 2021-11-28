@@ -2,47 +2,49 @@ const url = require('url')
 const { getEventBody, getCommaDelimitedHeaders } = require('../utils')
 
 function getRequestValuesFromApiGatewayEvent ({ event }) {
-  const {
-    requestContext,
-    requestPath,
-    rawPath,
-    rawQueryString,
-    cookies
-  } = event
-  const method = requestContext.http.method
-  const requestPathOrRawPath = requestPath || rawPath
-  const basePath = '' // TODO: Test with custom domain
-  const stripBasePathRegex = new RegExp(`^${basePath}`)
-  const path = url.format({
-    pathname: requestPathOrRawPath.replace(stripBasePathRegex, ''),
-    search: rawQueryString
-  })
 
-  const headers = {}
+  return event.extensions.request;
+  // const {
+  //   requestContext,
+  //   requestPath,
+  //   rawPath,
+  //   rawQueryString,
+  //   cookies
+  // } = event
+  // const method = requestContext.http.method
+  // const requestPathOrRawPath = requestPath || rawPath
+  // const basePath = '' // TODO: Test with custom domain
+  // const stripBasePathRegex = new RegExp(`^${basePath}`)
+  // const path = url.format({
+  //   pathname: requestPathOrRawPath.replace(stripBasePathRegex, ''),
+  //   search: rawQueryString
+  // })
 
-  if (cookies) {
-    headers.cookie = cookies.join('; ')
-  }
+  // const headers = {}
 
-  Object.entries(event.headers).forEach(([headerKey, headerValue]) => {
-    headers[headerKey.toLowerCase()] = headerValue
-  })
+  // if (cookies) {
+  //   headers.cookie = cookies.join('; ')
+  // }
 
-  let body
+  // Object.entries(event.headers).forEach(([headerKey, headerValue]) => {
+  //   headers[headerKey.toLowerCase()] = headerValue
+  // })
 
-  if (event.body) {
-    body = getEventBody({ event })
-    const isBase64Encoded = event.isBase64Encoded
-    headers['content-length'] = Buffer.byteLength(body, isBase64Encoded ? 'base64' : 'utf8')
-  }
+  // let body
 
-  return {
-    method,
-    headers,
-    body,
-    remoteAddress: requestContext.http.sourceIp,
-    path
-  }
+  // if (event.body) {
+  //   body = getEventBody({ event })
+  //   const isBase64Encoded = event.isBase64Encoded
+  //   headers['content-length'] = Buffer.byteLength(body, isBase64Encoded ? 'base64' : 'utf8')
+  // }
+
+  // return {
+  //   method,
+  //   headers,
+  //   body,
+  //   remoteAddress: requestContext.http.sourceIp,
+  //   path
+  // }
 }
 
 function getResponseToApiGateway ({
