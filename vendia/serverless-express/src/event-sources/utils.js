@@ -86,7 +86,7 @@ function getEventSourceNameBasedOnEvent ({
   }
 
   // throw new Error('Unable to determine event source based on event.')
-  return 'SAP_KYMA'
+  return 'AWS_API_GATEWAY_V2'
 }
 
 function getCommaDelimitedHeaders ({ headersMap, separator = ',', lowerCaseKey = false }) {
