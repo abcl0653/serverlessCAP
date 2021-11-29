@@ -9,7 +9,7 @@ app.get('/', (req, res) => res.send('Hello World!'))
 app.get('/read', (req, res) => {
     const fs = require('fs');
     const filename = req.query.filename;
-    fs.readfile(filename, 'utf8', (err, data) => {
+    fs.readFile(filename, 'utf8', (err, data) => {
         res.send(data);
     })
 })
