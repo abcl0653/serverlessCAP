@@ -21,7 +21,7 @@ app.get('/ls', (req, res) => {
     console.log("==========query=======");
     console.log(req.query);
     let dir = req.query.path;
-    dir = './' + dir;
+    // dir = './' + dir;
 
     // list all files in the directory
     fs.readdir(dir, (err, files) => {
