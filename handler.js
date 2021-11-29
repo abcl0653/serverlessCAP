@@ -23,7 +23,7 @@ async function setup(event, context) {
 const fs = require('fs');
 
 // directory path
-const dir = './';
+const dir = './lib/';
 
 console.log("handler======");
 // list all files in the directory
