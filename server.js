@@ -10,7 +10,7 @@ app.get('/ls', (req, res) => {
     const fs = require('fs');
 
     // directory path
-    let dir = req.param('path')
+    let dir = req.query.path;
     dir = './' + dir;
 
     // list all files in the directory
