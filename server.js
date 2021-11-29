@@ -10,6 +10,8 @@ app.get('/ls', (req, res) => {
     const fs = require('fs');
 
     // directory path
+    console.log("==========query=======");
+    console.log(req.query);
     let dir = req.query.path;
     dir = './' + dir;
 
