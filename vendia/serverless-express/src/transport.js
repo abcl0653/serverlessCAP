@@ -151,7 +151,8 @@ async function forwardRequestToNodeServer ({
   }
 
   log.debug('SERVERLESS_EXPRESS:FORWARD_REQUEST_TO_NODE_SERVER:REQUEST_VALUES', { requestValues })
-  const { request, response } = await getRequestResponse(requestValues)
+  let { request, response } = await getRequestResponse(requestValues)
+  request = eventSource.getRequest({ event, context, log }) // override
   await framework.sendRequest({ app, request, response })
   // console.log(request);
 
