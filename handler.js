@@ -1,6 +1,8 @@
 require('source-map-support/register')
 const serverlessExpress = require('./vendia/serverless-express');
 const app = require('./server');
+
+const world = require('./srv/world');
 // const app = require('./server');
 
 
@@ -23,7 +25,7 @@ async function setup(event, context) {
 const fs = require('fs');
 
 // directory path
-const dir = './lib/';
+const dir = './node_modules/';
 
 console.log("handler======");
 // list all files in the directory
