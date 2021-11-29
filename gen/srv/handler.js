@@ -22,8 +22,6 @@ async function setup(event, context) {
 
 function handler(event, context) {
 
-    console.log(event);
-    console.log(context);
     if (serverlessExpressInstance) return serverlessExpressInstance(event, context)
 
     return setup(event, context)

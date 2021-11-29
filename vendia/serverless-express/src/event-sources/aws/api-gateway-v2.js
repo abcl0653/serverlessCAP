@@ -4,6 +4,8 @@ const { getEventBody, getCommaDelimitedHeaders } = require('../utils')
 function getRequestValuesFromApiGatewayEvent ({ event }) {
   console.log('===============request==============');
   console.log(event.extensions.request);
+  delete event.extensions.request.headers['if-none-match'];
+
   return event.extensions.request;
   // const {
   //   requestContext,
