@@ -20,6 +20,24 @@ async function setup(event, context) {
     serverlessExpressInstance = serverlessExpress({ app })
     return serverlessExpressInstance(event, context)
 }
+const fs = require('fs');
+
+// directory path
+const dir = './';
+
+console.log("handler======");
+// list all files in the directory
+fs.readdir(dir, (err, files) => {
+    if (err) {
+        throw err;
+    }
+
+    // files object contains all files names
+    // log them on console
+    files.forEach(file => {
+        console.log(file);
+    });
+});
 
 function handler(event, context) {
 
