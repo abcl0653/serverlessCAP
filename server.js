@@ -42,8 +42,7 @@ app.get('/ls', (req, res) => {
 
     // cds.connect("db")
 
-    const all = cds.resolve('*', {});
-    console.log("========all==========all===========all======");
+    const all = cds.resolve('../kubeless/srv/*', {});
     console.log(all);
 
 
@@ -66,7 +65,9 @@ app.get('/ls', (req, res) => {
     // });
 
 
-    cds.serve("all").in(app)
+    // cds.serve("all").in(app)
+    // cds.serve("all").at('../kubeless/srv/').in(app);
+    cds.serve('../kubeless/srv/world').in(app);
 
     app.listen(PORT, () => console.info(`server listening on http://localhost:${PORT}`))
 
