@@ -8,6 +8,11 @@ app.get('/', (req, res) => res.send('Hello World!'))
 
 
 // cds.connect("db")
+
+const all = cds.resolve('*', {});
+console.log("========all==========all===========all======");
+console.log(all);
+
 cds.serve("all").in(app)
 
 app.listen (PORT, ()=> console.info(`server listening on http://localhost:${PORT}`))
