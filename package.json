@@ -7,7 +7,6 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^5",
-    "@vendia/serverless-express": "^4",
     "express": "^4",
     "source-map-support": "^0.5.21"
   },
