@@ -17,7 +17,7 @@ console.log(all);
 const fs = require('fs');
 
 // directory path
-const dir = './srv';
+const dir = './';
 
 // list all files in the directory
 fs.readdir(dir, (err, files) => {
