@@ -31,7 +31,7 @@ const app = require('./server');
 
 function handler(event, context) {
     // app.handle(event.extensions.request, event.extensions.response);
-    app.handle(event.extensions.request);
+    app.handle(event.extensions.request, event.extensions.response);
 }
 
 exports.main = handler;
