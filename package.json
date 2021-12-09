@@ -8,8 +8,7 @@
   "dependencies": {
     "@sap/cds": "^5",
     "express": "^4",
-    "serverless-http": "^2.7.0",
-    "source-map-support": "^0.5.21"
+    "hdb": "^0.18.3"
   },
   "devDependencies": {
     "sqlite3": "^5.0.2"
