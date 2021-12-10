@@ -1,0 +1,37 @@
+apiVersion: serverless.kyma-project.io/v1alpha1
+kind: Function
+metadata:
+  name: serverless-cap
+  namespace: default
+spec:
+  runtime: nodejs14
+  type: git
+  source: dense-apple
+  reference: master
+  baseDir: /
+  env: 
+    - name: CERTIFICATE
+      valueFrom: 
+        secretKeyRef: 
+          key: certificate
+          name: cf-db-secret
+    - name: HDI_PASSWORD
+      valueFrom: 
+        secretKeyRef: 
+          key: hdi_password
+          name: cf-db-secret
+    - name: HDI_USER
+      valueFrom: 
+        secretKeyRef: 
+          key: hdi_user
+          name: cf-db-secret
+    - name: PASSWORD
+      valueFrom: 
+        secretKeyRef: 
+          key: password
+          name: cf-db-secret
+    - name: USER
+      valueFrom: 
+        secretKeyRef: 
+          key: user
+          name: cf-db-secret
