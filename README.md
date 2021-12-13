@@ -23,3 +23,19 @@ File or Folder | Purpose
 ## Learn More
 
 Learn more at https://cap.cloud.sap/docs/get-started/.
+
+
+
+```bash
+# Build docker image
+docker build -t abcl0653/cap-service -f Dockerfile .   
+
+# Push image to hub.docker.com
+docker push abcl0653/cap-service 
+
+# deploy to Kyma
+kubectl create namespace dev
+kubectl -n dev apply -f ./deployment/deployment.yml
+kubectl -n dev apply -f ./deployment/apirule.yaml
+```
+

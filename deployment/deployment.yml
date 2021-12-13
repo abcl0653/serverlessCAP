@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cap-service 
+  labels:
+    app: cap-service 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cap-service 
+  template:
+    metadata:
+      labels: # labels to select/identify the deployment
+        app: cap-service  
+    spec:     # pod spec                  
+      containers: 
+      - image: abcl0653/cap-service:latest # image we pushed
+        name: cap-service  
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 4004
+        envFrom:
+          - secretRef:
+              name: serverlesscap-db-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cap-service 
+  labels:
+    app: cap-service
+spec:
+  ports:
+  - name: http
+    port: 4004
+    targetPort: 4004
+  selector:
+    app: cap-service 

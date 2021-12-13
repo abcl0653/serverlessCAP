@@ -28,3 +28,4 @@ mta_archives/
 # .vscode
 # .idea
 db/cf-db-secret.yml
+db/hdi-secret.yml
