@@ -1,6 +1,3 @@
-const url = require('url')
-const { getEventBody, getCommaDelimitedHeaders } = require('../utils')
-
 function getRequestValuesFromApiGatewayEvent ({ event }) {
   delete event.extensions.request.headers['if-none-match']; // workaround
 
